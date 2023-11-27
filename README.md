@@ -40,10 +40,6 @@ This template helps you:
 * Selenium
 * AutoIT
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -53,9 +49,7 @@ This template helps you:
 
 ### Installation
    git clone https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT.git
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+   
 <!-- USAGE EXAMPLES -->
 ## Usage
 package com;
@@ -102,9 +96,8 @@ public class HomePage_001_MenuItems extends BaseTest{
 <!-- ROADMAP -->
 ## Structure
 ![TemplateStructure](https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT/blob/master/TemplateStructure.png)
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- CONTACT -->
 ## Contact
 Sunny Nguyen - thuylinhnguyen.hust@gmail.com
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
