@@ -21,16 +21,10 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="#roadmap">Template</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -40,9 +34,6 @@ This template helps you:
 * Waste time to build the automated script professionally
 * Easy to expand and maintain
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 ### Built With
 * Java
 * Maven
@@ -112,11 +103,8 @@ public class HomePage_001_MenuItems extends BaseTest{
 ## Structure
 ![TemplateStructure](https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT/blob/master/TemplateStructure.png)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- CONTACT -->
 ## Contact
-
-Your Name - Sunny Nguyen - thuylinhnguyen.hust@gmail.com
+Sunny Nguyen - thuylinhnguyen.hust@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
