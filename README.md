@@ -21,7 +21,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Template</a></li>
+    <li><a href="#roadmap">Structure</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
