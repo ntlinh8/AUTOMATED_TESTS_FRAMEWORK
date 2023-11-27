@@ -48,8 +48,9 @@ This template helps you:
 * Maven
 
 ### Installation
+```sh
    git clone https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT.git
-   
+```  
 <!-- USAGE EXAMPLES -->
 ## Usage
 package com;
