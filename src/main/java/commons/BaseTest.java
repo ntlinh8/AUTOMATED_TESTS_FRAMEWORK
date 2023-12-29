@@ -1,6 +1,5 @@
 package commons;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -14,10 +13,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.opera.OperaDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -76,13 +73,13 @@ public class BaseTest {
 		String url = null;
 		switch (environmentName) {
 		case "DEV":
-			url = GlobalConstants.SYTNER_DEV_URL;
+			url = GlobalConstants.WEB_DEV_URL;
 			break;
 		case "STAGE":
-			url = GlobalConstants.SYTNER_STAGE_URL;
+			url = GlobalConstants.WEB_STAGE_URL;
 			break;
 		case "PRODUCT":
-			url = GlobalConstants.SYTNER_PRODUCT_URL;
+			url = GlobalConstants.WEB_PRODUCT_URL;
 			break;
 		}
 		return url;
@@ -204,6 +201,5 @@ public class BaseTest {
 				}
 			}
 		}
-
 	}
 }
