@@ -1,4 +1,3 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 
 # AUTOMATED SCRIPT FRAMEWORK
@@ -26,77 +25,44 @@
   </ol>
 </details>
 <!-- ABOUT THE PROJECT -->
-## About The Project
+In this branch, I will show you How to config and use Allure report for automated tests project
 
-Based on POM knowledge, this template will help you build an automated script easily. All functions are wrapped into this template and you only need to call to them in order to use. 
+Advantages:
+1. Config Allure report to your project successfully
+2. Avoid wasting time to research/fix issue when using Allure report
 
-This template helps you:
-* Save time to build the automated script professionally
-* Easy to expand and maintain
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-### Built With
-* Java
-* Maven
-* Selenium
-* AutoIT
 
-<!-- GETTING STARTED -->
 ## Getting Started
+After using Allure report, we need:
+1. Ensure that Java command line is set by entering ```java --version``` into command line
+   If you see the version of Java, that means Java is installed successfully. If not, you need to install Java
+2. Install the Allure Command Line and add path environment variables
+	(https://github.com/allure-framework/allure2/releases)
+	![TemplateStructure](https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT/blob/master/)
+	After all, let check Allure version to ensure that it's installed successfully by entering ```allure --version``` in to command line
+3. Add Allure dependencies into pom.xml
+```
+   <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+	<dependency>
+    		<groupId>io.qameta.allure</groupId>
+    		<artifactId>allure-testng</artifactId>
+    		<version>2.25.0</version>
+	</dependency>
+```
+4. Create allure.properties in /test/Resources folder
+	allure.results.directory=allure-json
+5. Create AllureTestListener file
+6. Add AllureTestListener to RunTC.xml file
+7. Add Epic/ Feature/ Story/ Description/ Severity to Class/ Test method
+8. After running script, open command line at the project and perform generate Allure report
+```
+	allure serve allure-json
+ ```
+The allure-json is a folder containing all results files. It's configured at step 4.
 
-### Prerequisites
-* Java 11+
-* Maven
+9. Result:
+After all, you will see the report like below:
 
-### Installation
-```sh
-   git clone https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT.git
-```  
-<!-- USAGE EXAMPLES -->
-## Usage
-package com;
-
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-
-import commons.BaseTest;
-import pageObjects.HomePO;
-import pageObjects.PageGeneratorManager;
-
-public class HomePage_001_MenuItems extends BaseTest{
-
-	WebDriver driver;
-	private HomePO homePage;
-	
-	@Parameters({"browser", "environment"})
-	@BeforeTest
-	public void beforeClass(String browserName, String environment) {
-		log.info("Start Before Test");
-		driver = getBrowserDriver(browserName, environment);
-		homePage = PageGeneratorManager.getHomePage(driver);
-		
-	}
-	
-	@Test
-	public void  MenuItems_001_AboutUs() {
-		log.info("Step 01: Click to Open Menu button");
-		homePage.clickToOpenMenuButton(driver);
-		
-		log.info("Step 02: Verify the title of pages");
-		verifyEquals(homePage.getPageTitle(driver), "Sytner Group: UK Prestige Car Dealerships");
-	}
-	
-	@AfterTest
-	public void afterClass() {
-		closeBrowserDriver();
-	}
-}
-
-<!-- ROADMAP -->
-## Structure
-![TemplateStructure](https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT/blob/master/TemplateStructure.png)
 
 <!-- CONTACT -->
 ## Contact
