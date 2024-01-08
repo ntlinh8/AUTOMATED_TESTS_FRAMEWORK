@@ -41,7 +41,7 @@ After using Allure report, we need:
 	![TemplateStructure](https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT/blob/master/)
 	After all, let check Allure version to ensure that it's installed successfully by entering ```allure --version``` in to command line
 3. Add Allure dependencies into pom.xml
-   ```
+```
    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
 	<dependency>
     		<groupId>io.qameta.allure</groupId>
