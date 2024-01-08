@@ -38,7 +38,9 @@ After using Allure report, we need:
    If you see the version of Java, that means Java is installed successfully. If not, you need to install Java
 2. Install the Allure Command Line and add path environment variables
 	(https://github.com/allure-framework/allure2/releases)
-	![TemplateStructure](https://github.com/ntlinh8/TEMPLATE-AUTOMATED-PROJECT/blob/master/)
+
+	<img src="/readme-file/allure-config-environment.png" alt="image" width="600" height="auto">
+	
 	After all, let check Allure version to ensure that it's installed successfully by entering ```allure --version``` in to command line
 3. Add Allure dependencies into pom.xml
 ```
@@ -51,10 +53,24 @@ After using Allure report, we need:
 ```
 4. Create allure.properties in /test/Resources folder
 	allure.results.directory=allure-json
+
+ 	<img src="/readme-file/add-allure-properties.png" alt="image" width="500" height="auto">
+
 5. Create AllureTestListener file
+   (/src/main/java/reportConfig/AllureTestListener.java)
+
+   
 6. Add AllureTestListener to RunTC.xml file
-7. Add Epic/ Feature/ Story/ Description/ Severity to Class/ Test method
-8. After running script, open command line at the project and perform generate Allure report
+
+   	<img src="/readme-file/add-to-runtc.png" alt="image" width="500" height="auto">
+
+8. Add Epic/ Feature/ Story/ Description/ Severity to Class/ Test method
+
+	<img src="/readme-file/add-to-script.png" alt="image" width="500" height="auto">
+
+	<img src="/readme-file/add-step.png" alt="image" width="500" height="auto">
+
+10. After running script, open command line at the project and perform generate Allure report
 ```
 	allure serve allure-json
  ```
@@ -63,6 +79,9 @@ The allure-json is a folder containing all results files. It's configured at ste
 9. Result:
 After all, you will see the report like below:
 
+	<img src="/readme-file/AllureReport1.png" alt="image" width="500" height="auto">
+
+	<img src="/readme-file/AllureReport2.png" alt="image" width="500" height="auto">
 
 <!-- CONTACT -->
 ## Contact
