@@ -31,7 +31,7 @@
 Based on POM knowledge, this template will help you build an automated script easily. All functions are wrapped into this template and you only need to call to them in order to use. 
 
 This template helps you:
-* Waste time to build the automated script professionally
+* Save time to build the automated script professionally
 * Easy to expand and maintain
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ### Built With
