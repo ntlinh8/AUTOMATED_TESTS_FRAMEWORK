@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="Suite">
+<suite parallel="tests" name="Run NopCommerce Website" thread-count="2">
 <parameter name="environment" value="DEV"/>
 
 <listeners>
@@ -8,6 +8,14 @@
 
 <test name="Run on CHROME">
   	<parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.Topic_01_Register"/>
+      <class name="com.Topic_02_Login"/>
+    </classes>
+</test> 
+
+<test name="Run on FIREFOX">
+  	<parameter name="browser" value="firefox"/>
     <classes>
       <class name="com.Topic_01_Register"/>
       <class name="com.Topic_02_Login"/>

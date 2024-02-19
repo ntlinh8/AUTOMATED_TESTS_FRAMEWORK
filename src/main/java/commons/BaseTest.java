@@ -66,6 +66,7 @@ public class BaseTest {
 		default:
 			throw new RuntimeException("Browser Name Invalid");
 		}
+		System.out.println("Driver Instance: " + driver.toString());
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 		driver.manage().window().maximize();
 		driver.get(getEnvironmentUrl(environmentName));
