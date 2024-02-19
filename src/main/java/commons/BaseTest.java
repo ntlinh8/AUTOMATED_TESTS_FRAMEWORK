@@ -1,6 +1,7 @@
 package commons;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +38,7 @@ public class BaseTest {
 	protected WebDriver getBrowserDriver(String browserName, String environmentName) {
 		switch (browserName) {
 		case "firefox":
-			WebDriverManager.firefoxdriver().setup();
+			WebDriverManager.firefoxdriver().clearDriverCache().setup();
 			driver = new FirefoxDriver();
 			break;
 		case "chrome":
@@ -45,11 +46,11 @@ public class BaseTest {
 			driver = new ChromeDriver();
 			break;
 		case "edge":
-			WebDriverManager.edgedriver().setup();
+			WebDriverManager.edgedriver().clearDriverCache().setup();
 			driver = new EdgeDriver();
 			break;
 		case "h_chrome":
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().clearDriverCache().setup();
 			ChromeOptions optionsChrome = new ChromeOptions();
 			optionsChrome.addArguments("-headless");
 			optionsChrome.addArguments("window-size=1920x1080");
@@ -65,7 +66,7 @@ public class BaseTest {
 		default:
 			throw new RuntimeException("Browser Name Invalid");
 		}
-		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 		driver.manage().window().maximize();
 		driver.get(getEnvironmentUrl(environmentName));
 		return driver;
@@ -75,13 +76,10 @@ public class BaseTest {
 		String url = null;
 		switch (environmentName) {
 		case "DEV":
-			url = GlobalConstants.WEB_DEV_URL;
+			url = GlobalConstants.PORTAL_DEV_URL;
 			break;
-		case "STAGE":
-			url = GlobalConstants.WEB_STAGE_URL;
-			break;
-		case "PRODUCT":
-			url = GlobalConstants.WEB_PRODUCT_URL;
+		case "TEST":
+			url = GlobalConstants.PORTAL_TEST_URL;
 			break;
 		}
 		return url;

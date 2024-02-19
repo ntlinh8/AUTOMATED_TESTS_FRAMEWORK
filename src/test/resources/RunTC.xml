@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-<parameter name="environment" value="PRODUCT"/>
+<parameter name="environment" value="DEV"/>
 
 <listeners>
 	<listener class-name="reportConfig.AllureTestListener" />
@@ -9,9 +9,10 @@
 <test name="Run on CHROME">
   	<parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.HomePage_001_MenuItems"/>
+      <class name="com.Topic_01_Register"/>
+      <class name="com.Topic_02_Login"/>
     </classes>
-  </test> 
+</test> 
   
 </suite> 
 

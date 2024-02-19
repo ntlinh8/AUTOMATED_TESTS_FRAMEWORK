@@ -1,1 +1,0 @@
-{"uuid":"dfb61dea-927b-43ed-b370-57ca4105b2cc","name":"Suite","children":["4f0eecf8-ae3b-4481-a51f-a1df4b325a93"],"befores":[{"name":"deleteFileInReport","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1704680602367,"stop":1704680602435}],"afters":[],"start":1704680602208,"stop":1704680657199}
