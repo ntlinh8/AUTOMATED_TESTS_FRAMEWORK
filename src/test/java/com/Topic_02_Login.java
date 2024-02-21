@@ -1,7 +1,5 @@
 package com;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -20,7 +18,6 @@ import pageObjects.UserRegisterPageObject;
 @Epic("Regrestion Test")
 @Feature("Login Function")
 public class Topic_02_Login extends BaseTest {
-	WebDriver driver;
 	UserHomePageObject homePage;
 	UserLoginPageObject loginPage;
 	UserRegisterPageObject registerPage;
@@ -29,9 +26,7 @@ public class Topic_02_Login extends BaseTest {
 	@Parameters({"browser", "environment"})
 	@BeforeClass
 	public void beforeClass(String browserName, String environment) {
-		driver = getBrowserDriver(browserName, environment);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
-		
 		firstName = "Elon";
 		lastName = "Musk";
 		email = "elonmusk" + getRandomNumber() + "@gmail.com";
@@ -169,8 +164,4 @@ public class Topic_02_Login extends BaseTest {
 		verifyTrue(homePage.isMyAccountLinkDisplayed());
 	}
 
-	@AfterClass
-	public void afterClass() {
-		closeBrowserDriver();
-	}
 }

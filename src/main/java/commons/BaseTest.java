@@ -23,7 +23,7 @@ import java.io.File;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	WebDriver driver;
+	protected static WebDriver driver;
 	protected final Log log;
 
 	protected BaseTest() {
@@ -33,6 +33,7 @@ public class BaseTest {
 	public WebDriver getDriverInstance() {
 		return this.driver;
 	}
+	
 
 	protected WebDriver getBrowserDriver(String browserName, String environmentName) {
 		switch (browserName) {
@@ -65,11 +66,6 @@ public class BaseTest {
 		default:
 			throw new RuntimeException("Browser Name Invalid");
 		}
-		System.out.println(driver.toString());
-		System.out.println(String.format("Thread Name: %s - Thread Priority: %s - Thread ID: %s", 
-				Thread.currentThread().getName(), 
-				Thread.currentThread().getPriority(), 
-				Thread.currentThread().getId()));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 		driver.manage().window().maximize();
 		driver.get(getEnvironmentUrl(environmentName));

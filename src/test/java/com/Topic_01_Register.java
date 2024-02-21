@@ -1,7 +1,5 @@
 package com;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -19,7 +17,6 @@ import pageObjects.UserRegisterPageObject;
 @Epic("Regrestion Test")
 @Feature("Register Function")
 public class Topic_01_Register extends BaseTest{
-	WebDriver driver;
 	UserHomePageObject homePage;
 	UserRegisterPageObject registerPage;
 	String firstName, lastName, email, password, confirmPassword;
@@ -27,7 +24,6 @@ public class Topic_01_Register extends BaseTest{
 	@Parameters({"browser", "environment"})
 	@BeforeClass
 	public void beforeClass(String browserName, String environment) {
-		driver = getBrowserDriver(browserName, environment);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
 		
 		firstName = "Elon";
@@ -155,10 +151,5 @@ public class Topic_01_Register extends BaseTest{
 		
 		log.info("Register 06 - Step 3: Verify confirm password error message display");
 		verifyEquals(registerPage.getErrorMessageByIDField("ConfirmPassword-error"), "The password and confirmation password do not match.");
-	}
-	
-	@AfterClass
-	public void afterClass() {
-		closeBrowserDriver();
 	}
 }
