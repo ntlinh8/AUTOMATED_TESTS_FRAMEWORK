@@ -41,7 +41,7 @@ public class BaseTest {
 			driver = new FirefoxDriver();
 			break;
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().clearDriverCache().setup();
 			driver = new ChromeDriver();
 			break;
 		case "edge":
@@ -65,7 +65,11 @@ public class BaseTest {
 		default:
 			throw new RuntimeException("Browser Name Invalid");
 		}
-		System.out.println("Driver Instance: " + driver.toString());
+		System.out.println(driver.toString());
+		System.out.println(String.format("Thread Name: %s - Thread Priority: %s - Thread ID: %s", 
+				Thread.currentThread().getName(), 
+				Thread.currentThread().getPriority(), 
+				Thread.currentThread().getId()));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
 		driver.manage().window().maximize();
 		driver.get(getEnvironmentUrl(environmentName));
