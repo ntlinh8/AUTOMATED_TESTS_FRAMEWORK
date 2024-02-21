@@ -20,7 +20,7 @@ import pageObjects.UserRegisterPageObject;
 @Epic("Regrestion Test")
 @Feature("Login Function")
 public class Topic_02_Login extends BaseTest {
-	WebDriver driver;
+	private WebDriver driver;
 	UserHomePageObject homePage;
 	UserLoginPageObject loginPage;
 	UserRegisterPageObject registerPage;

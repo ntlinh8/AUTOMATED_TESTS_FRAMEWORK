@@ -23,7 +23,8 @@ import java.io.File;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	WebDriver driver;
+	private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+
 	protected final Log log;
 
 	protected BaseTest() {
@@ -31,36 +32,36 @@ public class BaseTest {
 	}
 
 	public WebDriver getDriverInstance() {
-		return this.driver;
+		return this.driver.get();
 	}
 
 	protected WebDriver getBrowserDriver(String browserName, String environmentName) {
 		switch (browserName) {
 		case "firefox":
 			WebDriverManager.firefoxdriver().clearDriverCache().setup();
-			driver = new FirefoxDriver();
+			driver.set(new FirefoxDriver());
 			break;
 		case "chrome":
 			WebDriverManager.chromedriver().clearDriverCache().setup();
-			driver = new ChromeDriver();
+			driver.set(new ChromeDriver());
 			break;
 		case "edge":
 			WebDriverManager.edgedriver().clearDriverCache().setup();
-			driver = new EdgeDriver();
+			driver.set(new EdgeDriver());
 			break;
 		case "h_chrome":
 			WebDriverManager.chromedriver().clearDriverCache().setup();
 			ChromeOptions optionsChrome = new ChromeOptions();
 			optionsChrome.addArguments("-headless");
 			optionsChrome.addArguments("window-size=1920x1080");
-			driver = new ChromeDriver(optionsChrome);
+			driver.set(new ChromeDriver(optionsChrome));
 			break;
 		case "h_firefox":
 			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions optionsFirefox = new FirefoxOptions();
 			optionsFirefox.addArguments("-headless");
 			optionsFirefox.addArguments("window-size=1920x1080");
-			driver = new FirefoxDriver(optionsFirefox);
+			driver.set(new FirefoxDriver(optionsFirefox));
 			break;
 		default:
 			throw new RuntimeException("Browser Name Invalid");
@@ -70,10 +71,10 @@ public class BaseTest {
 				Thread.currentThread().getName(), 
 				Thread.currentThread().getPriority(), 
 				Thread.currentThread().getId()));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
-		driver.manage().window().maximize();
-		driver.get(getEnvironmentUrl(environmentName));
-		return driver;
+		driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));
+		driver.get().manage().window().maximize();
+		driver.get().get(getEnvironmentUrl(environmentName));
+		return driver.get();
 	}
 
 	private String getEnvironmentUrl(String environmentName) {
@@ -177,8 +178,8 @@ public class BaseTest {
 			}
 
 			if (driver != null) {
-				driver.manage().deleteAllCookies();
-				driver.quit();
+				driver.get().manage().deleteAllCookies();
+				driver.get().quit();
 			}
 		} catch (Exception e) {
 			log.info(e.getMessage());
